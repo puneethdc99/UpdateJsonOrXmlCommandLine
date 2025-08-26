@@ -1,0 +1,72 @@
+<Configuration>
+	<AppName>SampleApp</AppName>
+	<Version>1.0.0</Version>
+
+	<Logging>
+		<LogLevel>
+			<Default>Information</Default>
+			<System>Warning</System>
+			<Microsoft>Error</Microsoft>
+		</LogLevel>
+		<File>
+			<Path>/logs/app.log</Path>
+			<MaxSizeMB>10</MaxSizeMB>
+		</File>
+	</Logging>
+
+	<Database>
+		<ConnectionString>Server=localhost;Database=SampleDB;User Id=admin;Password=pass123;</ConnectionString>
+		<Provider>SQLServer</Provider>
+		<Settings>
+			<RetryCount>3</RetryCount>
+			<TimeoutSeconds>30</TimeoutSeconds>
+		</Settings>
+	</Database>
+
+	<Features>
+		<EnableFeatureX>true</EnableFeatureX>
+		<EnableFeatureY>false</EnableFeatureY>
+	</Features>
+
+	<Users>
+		<User>
+			<Id>1</Id>
+			<Name>Alice</Name>
+			<Roles>
+				<Role>Admin</Role>
+				<Role>Editor</Role>
+			</Roles>
+		</User>
+		<User>
+			<Id>2</Id>
+			<Name>Bob</Name>
+			<Roles>
+				<Role>Viewer</Role>
+			</Roles>
+		</User>
+	</Users>
+
+	<Modules>
+		<Module>
+			<ModuleName>Reporting</ModuleName>
+			<Enabled>true</Enabled>
+			<Settings>
+				<RefreshInterval>15</RefreshInterval>
+				<ExportFormats>
+					<Format>PDF</Format>
+					<Format>Excel</Format>
+				</ExportFormats>
+			</Settings>
+		</Module>
+		<Module>
+			<ModuleName>Analytics</ModuleName>
+			<Enabled>false</Enabled>
+			<Settings>
+				<RefreshInterval>30</RefreshInterval>
+				<ExportFormats>
+					<Format>CSV</Format>
+				</ExportFormats>
+			</Settings>
+		</Module>
+	</Modules>
+</Configuration>
