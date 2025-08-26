@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -92,7 +92,7 @@ public class DataUpdater5
             {
                 // Create array or object based on next key
                 bool nextIsIndex = index + 1 < path.Length && int.TryParse(path[index + 1], out _);
-                obj[currentKey] = nextIsIndex ? new JArray() : new JObject();
+                obj[currentKey] = newValue;
             }
 
             UpdateSpecificProperty(obj[currentKey], path, newValue, index + 1);
@@ -116,7 +116,7 @@ public class DataUpdater5
                 {
                     if (array[arrayIndex] == null || array[arrayIndex].Type != JTokenType.Object)
                     {
-                        array[arrayIndex] = new JObject();
+                        array[arrayIndex] = new JObject(newValue);
                     }
 
                     UpdateSpecificProperty(array[arrayIndex], path, newValue, index + 1);
